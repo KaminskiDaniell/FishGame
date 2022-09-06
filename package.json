@@ -1,0 +1,22 @@
+{
+  "name": "fishgame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaminskiDaniell/FishGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaminskiDaniell/FishGame/issues"
+  },
+  "homepage": "https://github.com/KaminskiDaniell/FishGame#readme",
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
+}
