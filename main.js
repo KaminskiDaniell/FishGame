@@ -99,6 +99,11 @@ class Ryba {
 
     eat(element) {
         element.remove();
+        this.addScore(1);
+    }
+
+    addScore(score) {
+        document.getElementById('score').innerHTML =  parseInt(document.getElementById('score').innerHTML) + score;
     }
 
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 body {
     background: url(https://img.freepik.com/premium-vector/sea-blackground_26659-30.jpg?w=2000) no-repeat center center fixed;
     background-size: cover;
@@ -10,6 +12,9 @@ body {
     background-size: cover;
     position: relative;
     overflow: hidden;
+    padding: 0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .ryba {
@@ -20,7 +25,6 @@ body {
     max-width: 150px;
     transition: all .1s;
     cursor: none;
-    user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -62,4 +66,18 @@ body {
     padding: .75rem 2.4rem;
     border-radius: 0 0 10% 10%;
     background-color: brown;
+}
+
+#score {
+    position: abolute;
+    top: 0;
+    left: 0;
+    padding: .5rem;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.484);
+    color: white;
+    width: 100px;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
 }
