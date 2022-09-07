@@ -24,22 +24,40 @@ class Snack {
     constructor(size) {
         let x = randomBetween(1, 100);
         let y = randomBetween(1, 100);
-        return this.spawnSnack(x, y, size);
+        this.snack = this.spawnSnack(x, y, size);
+        this.moveThread();
+        return this.snack;
     }
 
     spawnSnack(X, Y, size) {
         let image = new Image();
         image.src =
             'https://cdn.shopify.com/s/files/1/2555/1168/files/information-worm_2048x.png?v=1632120158';
+        X = 1; //TODO do wyjebanias
         image.style.top = `${X}vh`;
         image.style.position = 'absolute';
         image.style.left = `${Y}vw`;
         image.style.width = 'auto';
         image.style.height = `${size}vh`;
+        image.style.transition = 'all 0.5s';
         image.id = `${Date.now()}`;
         document.querySelector('body').appendChild(image);
         return image;
     }
+
+    moveThread() {
+        this.move()
+        setTimeout(() => {
+            this.moveThread();
+        }, 50);
+    }
+
+    move() {
+        this.snack.style.top  = `${parseInt(this.snack.style.top) + 1}vh`;
+        const side = randomBetween(-1, 2);
+        this.snack.style.left = `${parseInt(this.snack.style.left) + side}vw`;
+    }
+
 }
 
 
@@ -66,7 +84,7 @@ class Ryba {
         this.createFood()
         setTimeout(() => {
             this.foodThread();
-        }, 5000);
+        }, 1000);
     }
 
     createFood() {
