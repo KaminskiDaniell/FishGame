@@ -252,10 +252,11 @@ function keyboard_module(onUpdate){
     }
 
     function getKey(unicode){
+        var key;
         if(unicode_mapping[unicode]){
-            var key = unicode_mapping[unicode];
+            key = unicode_mapping[unicode];
         }else{
-            var key= unicode_mapping[unicode] = String.fromCharCode(unicode);
+            key= unicode_mapping[unicode] = String.fromCharCode(unicode);
         }
         return key;
     }
