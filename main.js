@@ -264,6 +264,20 @@ function keyboard_module(onUpdate){
 
 function testing(kb){
     console.log('These are the down keys', kb);
+    if (kb['W']) {
+        objImage.style.top = parseInt(objImage.style.top) - 5 + "px"; // w
+    }
+    if (kb['S']) {
+        objImage.style.top = parseInt(objImage.style.top) + 5 + "px"; // s
+    }
+    if (kb['A']) {
+        objImage.style.left = parseInt(objImage.style.left) - 5 + "px"; // a
+    }
+    if (kb['D']) {
+        objImage.style.left = parseInt(objImage.style.left) + 5 + "px"; // d
+    }
+
+
 }
 
 
