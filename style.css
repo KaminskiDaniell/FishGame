@@ -22,7 +22,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    max-width: 150px;
+    max-width: 50px;
     transition: all .1s;
     cursor: none;
     -webkit-user-drag: none;
