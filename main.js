@@ -263,18 +263,18 @@ function keyboard_module(onUpdate){
 }
 
 function testing(kb){
-    console.log('These are the down keys', kb);
+    const ryba = document.getElementById('ryba');
     if (kb['W']) {
-        objImage.style.top = parseInt(objImage.style.top) - 5 + "px"; // w
+        ryba.style.top = parseInt(ryba.style.top) - 5 + "px"; // w
     }
     if (kb['S']) {
-        objImage.style.top = parseInt(objImage.style.top) + 5 + "px"; // s
+        ryba.style.top = parseInt(ryba.style.top) + 5 + "px"; // s
     }
     if (kb['A']) {
-        objImage.style.left = parseInt(objImage.style.left) - 5 + "px"; // a
+        ryba.style.left = parseInt(ryba.style.left) - 5 + "px"; // a
     }
     if (kb['D']) {
-        objImage.style.left = parseInt(objImage.style.left) + 5 + "px"; // d
+        ryba.style.left = parseInt(ryba.style.left) + 5 + "px"; // d
     }
 
 
