@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+
+
 body {
     background: url(img/bg.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -106,4 +108,17 @@ body {
 audio {
     position: fixed;
     right: 0;
+}
+
+.grass {
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    height: min-content;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
