@@ -48,7 +48,7 @@ class Snack {
     spawnSnack(X, Y, size) {
         let image = new Image();
         image.src =
-            'https://cdn.shopify.com/s/files/1/2555/1168/files/information-worm_2048x.png?v=1632120158';
+            'https://www.pngall.com/wp-content/uploads/2016/03/Onion-Transparent.png';
         X = 1; //TODO do wyjebanias
         image.style.top = `${X}vh`;
         image.style.position = 'absolute';

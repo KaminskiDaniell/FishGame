@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 body {
-    background: url(https://img.freepik.com/premium-vector/sea-blackground_26659-30.jpg?w=2000) no-repeat center center fixed;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Onion_field_in_Imaizumi%2C_Shiroishi.jpg/1200px-Onion_field_in_Imaizumi%2C_Shiroishi.jpg) no-repeat center center fixed;
     background-size: cover;
     cursor: crosshair;
     width: 100%;
@@ -10,6 +10,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-position: top;
     position: relative;
     overflow: hidden;
     padding: 0;
@@ -30,11 +31,11 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    width: 30px;
+    /* width: 30px;
     height: 30px;
     background-color: rgba(250, 128, 114, 0.774);
     border-radius: 50%;
-    border: 2px solid #fa8072;
+    border: 2px solid #fa8072; */
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
