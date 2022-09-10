@@ -158,6 +158,8 @@ class Ryba {
 
 
     constructor(element, imageSrc) {
+        this.lastLevelUp = 0;
+        this.requiredScoreToLevelUp = 20;
         this.element = element
         this.food = [];
         this.createFish(imageSrc)
@@ -248,7 +250,6 @@ class Ryba {
 
         if (isDanger) {
             this.setScore(0)
-            playSound("sounds/spierdalaj.mp3")
         } else {
             this.addScore(1);
         }
@@ -275,7 +276,13 @@ class Ryba {
 
     sizeThread() {
 
-        this.getFish().style.maxWidth = `${50 + this.getScore()}px`;
+        if (this.getScore() >= this.lastLevelUp + this.requiredScoreToLevelUp) {
+            this.lastLevelUp = this.getScore();
+            this.getFish().style.maxWidth = `${50 + (this.getScore() / 10 * 20)}px`;
+            playSound('sounds/levelup.mp3')
+        }
+
+        
 
         setTimeout(() => {
             this.sizeThread();
