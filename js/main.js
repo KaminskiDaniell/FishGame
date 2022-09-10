@@ -173,7 +173,7 @@ class Ryba {
       'kaminski': 'spierdalaj.mp3',
       'bulka': 'eat.mp3',
       'onion': 'eat.mp3',
-      'perła': 'drink.mp3',
+      'perła': 'piwo.mp3',
       'cola': 'drink.mp3',
       'dieselina': 'honk.mp3',
       'manuela': 'honk.mp3',
@@ -207,15 +207,17 @@ class Ryba {
    */
   addScore(score) {
     const scoreDiv = document.getElementById('score');
-    scoreDiv.innerHTML = parseInt(scoreDiv.innerHTML) + score;
+    this.setScore(parseInt(scoreDiv.innerHTML) + score);
   }
 
   /**
-   *
+   *nextlevelscore
    * @param {number} score score to be set
    */
   setScore(score) {
+    const nls = document.getElementById('nextlevelscore');
     document.getElementById('score').innerHTML = parseInt(score);
+    nls.innerHTML = 20 - parseInt(score) % 20;
   }
 
   /**

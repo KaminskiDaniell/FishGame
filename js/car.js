@@ -63,6 +63,8 @@ class Car {
    * Function responsible for car move
    */
   move() {
+    const top = randomBetween(-1, 2);
+    this.car.style.top = `${parseInt(this.car.style.top) + top}vh`;
     this.car.style.left = `${parseInt(this.car.style.left) + 1}vw`;
   }
 }
