@@ -1,5 +1,6 @@
 const snacks = ["bulka","cola","onion","perła"];
 const dangers = ["kaminski"];
+const currentAudio = [];
 
 
 document.addEventListener('mousemove', function (e) {
@@ -24,15 +25,21 @@ document.addEventListener('mousemove', function (e) {
 
 
 function playSound(url){
-    var audio = document.createElement('audio');
-    audio.style.display = "none";
-    audio.src = url;
-    audio.autoplay = true;
-    audio.onended = function(){
-      audio.remove() //Remove when played.
-    };
-    document.body.appendChild(audio);
-  }
+    if (!currentAudio.includes(url)) {
+        var audio = document.createElement('audio');
+        audio.style.display = "none";
+        audio.src = url;
+        audio.autoplay = true;
+        audio.volume = 0.5;
+        audio.onended = function(){
+            audio.remove() //Remove when played.
+            let index = currentAudio.indexOf(url);
+            currentAudio.splice(index, 1);
+        };
+        document.body.appendChild(audio);
+        currentAudio.push(url);
+    }
+}
 
 const randomBetween = (min, max)  =>{
     return Math.floor(Math.random() * (max - min) + min);

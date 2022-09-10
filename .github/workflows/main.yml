@@ -22,3 +22,5 @@ jobs:
             .gitignore
             package-lock.json
             package.json
+            **/.git**
+            **/.git*/**
