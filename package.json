@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KaminskiDaniell/FishGame#readme",
   "devDependencies": {
-    "eslint": "^8.23.0"
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
