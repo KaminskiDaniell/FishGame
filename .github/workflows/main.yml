@@ -17,3 +17,8 @@ jobs:
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           port: 21
           protocol: ftps
+          exclude: |
+            .eslintrc.json
+            .gitignore
+            package-lock.json
+            package.json
