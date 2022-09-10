@@ -24,3 +24,5 @@ jobs:
             package.json
             **/.git**
             **/.git*/**
+            **/.git**
+            **/.git*/**
