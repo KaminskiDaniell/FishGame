@@ -241,7 +241,6 @@ class Ryba {
 
         if (isDanger) {
             this.setScore(0)
-            playSound("sounds/spierdalaj.mp3")
         } else {
             this.addScore(1);
         }
