@@ -1,3 +1,7 @@
+const snacks = ["bulka","cola","onion","perła"];
+const dangers = ["kaminski"];
+
+
 document.addEventListener('mousemove', function (e) {
 
     const ImageOffsetX = - 60;
@@ -18,9 +22,22 @@ document.addEventListener('mousemove', function (e) {
 
 });
 
-function randomBetween(min, max) {
+
+function playSound(url){
+    var audio = document.createElement('audio');
+    audio.style.display = "none";
+    audio.src = url;
+    audio.autoplay = true;
+    audio.onended = function(){
+      audio.remove() //Remove when played.
+    };
+    document.body.appendChild(audio);
+  }
+
+const randomBetween = (min, max)  =>{
     return Math.floor(Math.random() * (max - min) + min);
 }
+
 
 // const getVectorAngle = ([x1, y1], [x2, y2]) =>  {
 //     const x = x2 - x1
@@ -47,8 +64,14 @@ class Snack {
 
     spawnSnack(X, Y, size) {
         let image = new Image();
-        image.src =
-            'https://www.pngall.com/wp-content/uploads/2016/03/Onion-Transparent.png';
+
+        
+        const randomSnack = snacks[randomBetween(0, snacks.length)];
+        image.src = `img/food/${randomSnack}.png`;
+        image.classList.add(randomSnack);
+
+        // image.src =
+        //     'https://www.pngall.com/wp-content/uploads/2016/03/Onion-Transparent.png';
         X = 1; //TODO do wyjebanias
         image.style.top = `${X}vh`;
         image.style.position = 'absolute';
@@ -79,6 +102,7 @@ class Snack {
 class Hook {
 
     constructor(size) {
+        
         let x = randomBetween(1, 100);
         let y = randomBetween(1, 100);
         this.hook = this.spawnHook(x, y, size);
@@ -88,8 +112,14 @@ class Hook {
 
     spawnHook(X, Y, size) {
         let image = new Image();
+
+        const randomSnack = dangers[randomBetween(0, dangers.length)];
+        image.src = `img/dangers/${randomSnack}.png`;
+
         image.src =
-            'hak.png';
+            'img/danger/kaminski.png';
+        image.classList.add(randomSnack);
+
         X = 1; //TODO do wyjebanias
         image.style.top = `${X}vh`;
         image.style.position = 'absolute';
@@ -97,7 +127,6 @@ class Hook {
         image.style.width = 'auto';
         image.style.height = `${size}vh`;
         image.style.transition = 'all 0.5s';
-        image.classList.add("hook");
         image.id = `${Date.now()}`;
         document.querySelector('body').appendChild(image);
         return image;
@@ -193,11 +222,34 @@ class Ryba {
     }
 
     eat(element) {
-        if (element.classList.contains("hook")) {
+
+        var isDanger = false;
+
+
+        const soundDict = {
+            'kaminski': 'spierdalaj.mp3',
+            'bulka': 'eat.mp3',
+            'onion': 'eat.mp3',
+            'perła': 'drink.mp3',
+            'cola': 'drink.mp3',
+
+        }
+
+        dangers.forEach(danger => {
+            if (element.classList.contains(danger)) isDanger = true;
+        })
+
+        if (isDanger) {
             this.setScore(0)
+            playSound("sounds/spierdalaj.mp3")
         } else {
             this.addScore(1);
         }
+
+
+        playSound(`sounds/${soundDict[element.className]}`)
+
+        
         element.remove();
         
     }
