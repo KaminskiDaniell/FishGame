@@ -89,3 +89,8 @@ body {
     text-align: center;
     font-weight: bold;
 }
+
+audio {
+    position: fixed;
+    right: 0;
+}

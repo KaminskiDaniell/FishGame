@@ -1,4 +1,4 @@
-const snacks = ["bulka","cola","onion","perła"];
+const snacks = ["bulka","cola","onion","perła", "1zc"];
 const dangers = ["kaminski"];
 const currentAudio = [];
 
