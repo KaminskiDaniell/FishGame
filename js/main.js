@@ -206,7 +206,7 @@ class Ryba {
    * @param {number} score score to be added
    */
   addScore(score) {
-    scoreDiv = document.getElementById('score');
+    const scoreDiv = document.getElementById('score');
     scoreDiv.innerHTML = parseInt(scoreDiv.innerHTML) + score;
   }
 
