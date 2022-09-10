@@ -1,12 +1,13 @@
 const snacks = ["bulka","cola","onion","perła", "1zc"];
 const dangers = ["kaminski"];
+const cars = ["dieselina","manuela"];
 const currentAudio = [];
 
 
 document.addEventListener('mousemove', function (e) {
 
-    const ImageOffsetX = - 60;
-    const ImageOffsetY = - 50;
+    const ImageOffsetX = - 0;
+    const ImageOffsetY = - 0;
 
     const ryba = document.getElementById('ryba');
 
@@ -121,10 +122,8 @@ class Hook {
         let image = new Image();
 
         const randomSnack = dangers[randomBetween(0, dangers.length)];
-        image.src = `img/dangers/${randomSnack}.png`;
+        image.src = `img/danger/${randomSnack}.png`;
 
-        image.src =
-            'img/danger/kaminski.png';
         image.classList.add(randomSnack);
 
         X = 1; //TODO do wyjebanias
@@ -152,6 +151,55 @@ class Hook {
 
 
 }
+
+
+
+class Car {
+
+    constructor(size) {
+        
+        let x = randomBetween(1, 100);
+        let y = randomBetween(1, 100);
+        this.car = this.spawnCar(x, y, size);
+        this.moveThread();
+        return this.car;
+    }
+
+    spawnCar(X, Y, size) {
+        let image = new Image();
+
+
+        const randomCar = cars[randomBetween(0, cars.length)];
+        image.src = `img/danger/cars/${randomCar}.png`;
+        image.classList.add(randomCar);
+
+
+        image.style.top = `${X}vh`;
+        image.style.position = 'absolute';
+        Y = 1;
+        image.style.left = `${Y}vw`;
+        image.style.width = 'auto';
+        image.style.height = `${size}vh`;
+        image.style.transition = 'all 0.5s';
+        image.id = `${Date.now()}`;
+        document.querySelector('body').appendChild(image);
+        return image;
+    }
+
+    moveThread() {
+        this.move()
+        setTimeout(() => {
+            this.moveThread();
+        }, 50);
+    }
+
+    move() {
+        this.car.style.left = `${parseInt(this.car.style.left) + 1}vw`;
+    }
+
+
+}
+
 
 
 class Ryba {
@@ -200,6 +248,12 @@ class Ryba {
 
     createDanger() {
         this.food.push(new Hook(randomBetween(5, 10)))
+
+        let random = randomBetween(1, 100);
+
+        if (random > 30) {
+            this.food.push(new Car(randomBetween(5, 10)))
+        }
     }
 
     createFood() {
@@ -241,10 +295,16 @@ class Ryba {
             'onion': 'eat.mp3',
             'perła': 'drink.mp3',
             'cola': 'drink.mp3',
+            'dieselina': 'honk.mp3',
+            'manuela': 'honk.mp3',
 
         }
 
         dangers.forEach(danger => {
+            if (element.classList.contains(danger)) isDanger = true;
+        })
+
+        cars.forEach(danger => {
             if (element.classList.contains(danger)) isDanger = true;
         })
 
